@@ -1,8 +1,9 @@
 # CustomDialog
 一个万能的通用支持多功能的Dialog
+![CustomDialog](/images/dialog.gif)
 ## 依赖
 ```
-
+compile 'com.github.SiberiaDante:CustomDialog:v1.0.1'
 ```
 ## 说明
 ### [CustomDialog]：
@@ -101,7 +102,7 @@
 
 ### 其他几个常用Dialog
 
-* [EnsureDialog]
+* [EnsureDialog]:
 ```
 EnsureDialog ensureDialog = new EnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
@@ -141,7 +142,7 @@ new BottomPopupWindow(this).builder()
                 }).show();
 ```
 
-* [EditDialog]
+* [EditDialog]:
 ```
   final EditDialog dialog = new EditDialog(this).builder();
         dialog.setTitle("可编辑Dialog");
@@ -162,7 +163,7 @@ new BottomPopupWindow(this).builder()
         dialog.show();
 ```
 
-[CustomDialog]：
-[EditDialog]:
-[BottomPopupWindow]:
-[EnsureDialog]:
+[CustomDialog]:https://github.com/SiberiaDante/CustomDialog/blob/0e3849999b7ed3398255b1312fa28d7d38b23306/customdialoglib/src/main/java/com/siberiadante/customdialoglib/CustomDialog.java
+[EditDialog]:https://github.com/SiberiaDante/CustomDialog/blob/0e3849999b7ed3398255b1312fa28d7d38b23306/customdialoglib/src/main/java/com/siberiadante/customdialoglib/EditDialog.java
+[BottomPopupWindow]:https://github.com/SiberiaDante/CustomDialog/blob/0e3849999b7ed3398255b1312fa28d7d38b23306/customdialoglib/src/main/java/com/siberiadante/customdialoglib/BottomPopupWindow.java
+[EnsureDialog]:https://github.com/SiberiaDante/CustomDialog/blob/0e3849999b7ed3398255b1312fa28d7d38b23306/customdialoglib/src/main/java/com/siberiadante/customdialoglib/EnsureDialog.java
