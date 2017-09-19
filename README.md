@@ -5,6 +5,19 @@
 ```
 compile 'com.github.SiberiaDante:CustomDialog:v1.0.1'
 ```
+## 推荐
+#### [博客园:http://www.cnblogs.com/shen-hua/]
+#### [TitleLayout——一个轻松实现标题栏的]
+#### [ToastUtil——Toast多功能使用的封装]
+#### [Android开发必备经典收藏集（整理中）]
+#### [Android开发常备工具整理中]
+
+[博客园:http://www.cnblogs.com/shen-hua/]:http://www.cnblogs.com/shen-hua/
+[TitleLayout——一个轻松实现标题栏的]:http://www.jianshu.com/p/3d0430901848
+[ToastUtil——Toast多功能使用的封装]:https://github.com/SiberiaDante/ToastUtils
+[Android开发必备经典收藏集（整理中）]:http://www.jianshu.com/p/a49081da249a
+[Android开发常备工具整理中]:https://github.com/SiberiaDante/SiberiaDanteLib
+
 ## 说明
 ### [CustomDialog]：
 一个万能的通用支持多功能的Dialog,简单两步即可实现
@@ -105,7 +118,7 @@ compile 'com.github.SiberiaDante:CustomDialog:v1.0.1'
 
 ### 其他几个常用Dialog
 
-* [EnsureDialog]:
+* [EnsureDialog] :确认Dialog
 ```
 EnsureDialog ensureDialog = new EnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
@@ -128,7 +141,7 @@ EnsureDialog ensureDialog = new EnsureDialog(this).builder()
                 });
         ensureDialog.show();
 ```
-* [BottomPopupWindow]:
+* [BottomPopupWindow] :仿IOS底部弹窗Dialog
 ```
 new BottomPopupWindow(this).builder()
                 .setTitle("选择").setCancelable(false).setCanceled(true)
@@ -145,7 +158,7 @@ new BottomPopupWindow(this).builder()
                 }).show();
 ```
 
-* [EditDialog]:
+* [EditDialog] :带EditText确认Dialog
 ```
   final EditDialog dialog = new EditDialog(this).builder();
         dialog.setTitle("可编辑Dialog");
