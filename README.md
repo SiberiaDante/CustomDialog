@@ -8,9 +8,12 @@ compile 'com.github.SiberiaDante:CustomDialog:v1.0.1'
 ## 说明
 ### [CustomDialog]：
 一个万能的通用支持多功能的Dialog,简单两步即可实现
+
 * 只需要传入自定义的CustomDialog布局和需要设置点击事件的控件的id即可
 ```
-    CustomDialog customDialog=new CustomDialog(this,R.layout.dialog_layout,new int[]{R.id.dialog_sure});
+    CustomDialog customDialog=new CustomDialog(this,
+                                    R.layout.dialog_layout,
+                                    new int[]{R.id.dialog_sure});
 ```
 * CustomDialog按钮的监听
 ```
