@@ -178,6 +178,12 @@ new BottomPopupWindow(this).builder()
         });
         dialog.show();
 ```
+### 报错指南
+*
+```
+Error:Execution failed for task ':app:processDebugResources'. > com.android.ide.common.process.ProcessException: Failed to execute aapt
+```
+解决方法：COMPILE_SDK_VERSION>=26
 
 [CustomDialog]:https://github.com/SiberiaDante/CustomDialog/blob/0e3849999b7ed3398255b1312fa28d7d38b23306/customdialoglib/src/main/java/com/siberiadante/customdialoglib/CustomDialog.java
 [EditDialog]:https://github.com/SiberiaDante/CustomDialog/blob/0e3849999b7ed3398255b1312fa28d7d38b23306/customdialoglib/src/main/java/com/siberiadante/customdialoglib/EditDialog.java

@@ -98,7 +98,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void onClick(int which) {
                         //调用手机相册的方法,该方法在下面有具体实现
                     }
-                }).show();
+                })
+                .addSheetItem("时光机", BottomPopupWindow.SheetItemColor.Blue, new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+
+                    }
+                })
+                .show();
     }
 
     /**

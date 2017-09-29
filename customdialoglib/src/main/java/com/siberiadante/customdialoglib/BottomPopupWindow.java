@@ -116,9 +116,9 @@ public class BottomPopupWindow {
             params.height = display.getHeight() / 2;
             sLayout_content.setLayoutParams(params);
         }
-        for (int i = 1; i <= size; i++) {
+        for (int i = 0; i <= size-1; i++) {
             final int index = i;
-            SheetItem sheetItem = sheetItemList.get(i - 1);
+            SheetItem sheetItem = sheetItemList.get(i );
             String strItem = sheetItem.name;
             SheetItemColor color = sheetItem.color;
             final OnSheetItemClickListener listener = (OnSheetItemClickListener) sheetItem.itemClickListener;
@@ -126,7 +126,7 @@ public class BottomPopupWindow {
             textView.setText(strItem);
             textView.setTextSize(18);
             textView.setGravity(Gravity.CENTER);
-            if (size == 1) {
+            if (size-1 == 0) {
                 if (showTitle) {
                     textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
                 } else {
@@ -134,15 +134,15 @@ public class BottomPopupWindow {
                 }
             } else {
                 if (showTitle) {
-                    if (i >= 1 && i < size) {
+                    if (i >= 0 && i < size-1) {
                         textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
                     } else {
                         textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
                     }
                 } else {
-                    if (i == 1) {
+                    if (i == 0) {
                         textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
-                    } else if (i < size) {
+                    } else if (i < size-1) {
                         textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
                     } else {
                         textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
@@ -167,7 +167,7 @@ public class BottomPopupWindow {
                 }
             });
             lLayout_content.addView(textView);
-            if ((i >= 1) && (i < size)) {//此if语句是我加的使每一小项之间有分割线
+            if ((i >= 0) && (i < size-1)) {//此if语句是我加的使每一小项之间有分割线
                 View v = new View(context);
                 v.setBackgroundColor(Color.parseColor("#c6c6c6"));
                 v.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1));
@@ -199,7 +199,7 @@ public class BottomPopupWindow {
     }
 
     public enum SheetItemColor {
-        Blue("#037BFF"), Red("#FD4A2E");
+        Blue("#037BFF"), Red("#FD4A2E"),Gray("#5b5b5b");
 
         private String name;
 
