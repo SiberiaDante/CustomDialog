@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.siberiadante.customdialoglib.BottomPopupWindow;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_bottom_popup_widow).setOnClickListener(this);
         findViewById(R.id.btn_edit_dialog).setOnClickListener(this);
         findViewById(R.id.btn_custom_dialog).setOnClickListener(this);
+        findViewById(R.id.btn_custom_edit_dialog).setOnClickListener(this);
     }
 
     @Override
@@ -54,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_custom_dialog:
                 showCustomDialog();
+                break;
+            case R.id.btn_custom_edit_dialog:
+
+               showCustomEditDialog();
                 break;
         }
     }
@@ -195,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showCustomDialog() {
-        final CustomDialog customDialog = new CustomDialog(this, R.layout.dialog_layout, new int[]{R.id.dialog_sure}, 0, true, Gravity.CENTER);
+        final CustomDialog customDialog = new CustomDialog(this, R.layout.dialog_layout, new int[]{R.id.dialog_sure}, true, Gravity.CENTER);
         customDialog.setOnDialogItemClickListener(new CustomDialog.OnCustomDialogItemClickListener() {
             @Override
             public void OnCustomDialogItemClick(CustomDialog dialog, View view) {
@@ -205,6 +211,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         customDialog.show();
 
+    }
+
+    private void showCustomEditDialog() {
+        final CustomDialog customDialog = new CustomDialog(this,
+                R.layout.dialog_edit,
+                new int[]{R.id.btn_cancel,R.id.btn_sure},
+                R.id.edt_content,
+                0,
+                true,
+                Gravity.CENTER);
+        customDialog.setOnDialogItemClickListener(new CustomDialog.OnCustomDialogItemClickListener() {
+            @Override
+            public void OnCustomDialogItemClick(CustomDialog dialog, View view) {
+               switch (view.getId()) {
+                case R.id.btn_cancel:
+                break;
+                case R.id.btn_sure:
+
+                break;
+            }
+            }
+        });
+        customDialog.show();
+        final EditText editText = customDialog.getEditText();
+        editText.setHint("这是一个提示");
     }
 
     @Override

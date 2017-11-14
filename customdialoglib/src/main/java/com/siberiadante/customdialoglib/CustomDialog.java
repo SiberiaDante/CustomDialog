@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
 
 import java.util.List;
 
@@ -33,6 +34,8 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
     private OnCustomDialogItemClickListener listener;
     private boolean mIsDismiss = false;//是否默认所有按钮点击后取消dialog显示，false是需要在点击事件后手动调用dismiss
     private int mPosition = 0; //Dialog 相对页面显示的位置
+    private EditText mEditText;
+    private int mEdtResId;//EditText id
 
     public void setOnDialogItemClickListener(OnCustomDialogItemClickListener listener) {
         this.listener = listener;
@@ -105,7 +108,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
      * @param isDismiss      按钮点击后是否默认取消dialog {@code true}取消 {@code false} 不取消
      * @param position       dialog 显示位置，默认CENTER,不设置时可以传0
      */
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems, int animationResId, boolean isDismiss, int position) {
+    public CustomDialog(Context context, int layoutResID, int[] listenedItems, int edtResId,int animationResId, boolean isDismiss, int position) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
@@ -113,6 +116,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
         this.mAnimationResId = animationResId;
         this.mIsDismiss = isDismiss;
         this.mPosition = position;
+        this.mEdtResId=edtResId;
     }
 
     @Override
@@ -141,6 +145,15 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
         for (int id : mListenedItems) {
             findViewById(id).setOnClickListener(this);
         }
+        mEditText= (EditText) findViewById(mEdtResId);
+    }
+
+    /**
+     * 获取中间EditText
+     * @return
+     */
+    public EditText getEditText(){
+        return  this.mEditText;
     }
 
     @Override
