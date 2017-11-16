@@ -78,10 +78,12 @@
                 android:id="@+id/btn_custom_dialog"
                 style="@style/MainButton"
                 android:text="自定义布局的Dialog" />
+
+
             <Button
-                android:id="@+id/btn_custom_edit_dialog"
+                android:id="@+id/btn_sd_custom_dialog"
                 style="@style/MainButton"
-                android:text="自定义布局支持一个EditText的Dialog" />
+                android:text="自定义布局支持各种自定义Dialog" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

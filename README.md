@@ -185,8 +185,8 @@ Error:Execution failed for task ':app:processDebugResources'. > com.android.ide.
 ```
 解决方法：COMPILE_SDK_VERSION>=26
 ### 版本更新说明：
-* v1.0.2(未发布)：
-    * CustomDialog 增加支持添加一个EditText
+* v1.0.2：
+    * CustomDialog 增加支持动态设置View属性
 
 [CustomDialog]:https://github.com/SiberiaDante/CustomDialog/blob/0e3849999b7ed3398255b1312fa28d7d38b23306/customdialoglib/src/main/java/com/siberiadante/customdialoglib/CustomDialog.java
 [EditDialog]:https://github.com/SiberiaDante/CustomDialog/blob/0e3849999b7ed3398255b1312fa28d7d38b23306/customdialoglib/src/main/java/com/siberiadante/customdialoglib/EditDialog.java

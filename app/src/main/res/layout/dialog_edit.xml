@@ -9,11 +9,11 @@
         android:layout_marginBottom="28dp"
         android:text="请输入您的内容"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/sd_color_black"
         android:textSize="16sp"
         android:layout_height="wrap_content" />
     <View
-        android:background="@color/black"
+        android:background="@color/sd_color_black"
         android:layout_marginStart="15dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -33,7 +33,7 @@
         android:layout_marginStart="15dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black"
+        android:background="@color/sd_color_black"
         android:layout_marginEnd="15dp"/>
     <LinearLayout
         android:layout_width="match_parent"

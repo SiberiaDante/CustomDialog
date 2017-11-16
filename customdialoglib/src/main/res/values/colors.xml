@@ -4,9 +4,9 @@
     <color name="action_sheet_blue">#037BFF</color>
     <color name="action_sheet_red">#FD4A2E</color>
     <color name="action_sheet_gray">#8F8F8F</color>
-    <color name="black">#000000</color>
-    <color name="white">#ffffff</color>
-    <color name="red">#fa0303</color>
-    <color name="blue">#030bfa</color>
-    <color name="gray">#8F8F8F</color>
+    <color name="sd_color_black">#000000</color>
+    <color name="sd_color_white">#ffffff</color>
+    <color name="sd_color_red">#fa0303</color>
+    <color name="sd_color_blue">#030bfa</color>
+    <color name="sd_color_gray">#8F8F8F</color>
 </resources>

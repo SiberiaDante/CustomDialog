@@ -35,7 +35,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="标题标题标题标题"
-                android:textColor="@color/black"
+                android:textColor="@color/sd_color_black"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -82,7 +82,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="确认"
-                android:textColor="@color/red"
+                android:textColor="@color/sd_color_red"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -93,7 +93,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="确认"
-            android:textColor="@color/red"
+            android:textColor="@color/sd_color_red"
             android:textSize="16sp"
             android:visibility="gone" />
     </RelativeLayout>
