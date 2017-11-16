@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void showCustomDialog() {
-        final CustomDialog customDialog = new CustomDialog(this, R.layout.dialog_sd_custom);
+         CustomDialog customDialog = new CustomDialog(this, R.layout.dialog_sd_custom);
         customDialog.show();
     }
 

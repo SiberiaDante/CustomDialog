@@ -3,12 +3,11 @@
 ![CustomDialog](/images/dialog.gif)
 ## 依赖
 ```
-compile 'com.github.SiberiaDante:CustomDialog:v1.0.1'
+compile 'com.github.SiberiaDante:CustomDialog:v1.0.2'
 ```
 ## 推荐
 #### [博客园:http://www.cnblogs.com/shen-hua/]
 #### [TitleLayout——一个轻松实现标题栏的]
-#### [ToastUtil——Toast多功能使用的封装]
 #### [Android开发必备经典收藏集（整理中）]
 #### [Android开发常备工具整理中]
 
