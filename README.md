@@ -5,17 +5,19 @@
 ```
 compile 'com.github.SiberiaDante:CustomDialog:v1.0.2'
 ```
-## 推荐
-#### [博客园:http://www.cnblogs.com/shen-hua/]
-#### [TitleLayout——一个轻松实现标题栏的]
-#### [Android开发必备经典收藏集（整理中）]
-#### [Android开发常备工具整理中]
+![1](/images/1.png)
+![2](/images/2.png)
+![3](/images/3.png)
+![4](/images/4.png)
+![5](/images/5.png)
+![6](/images/6.png)
+![7](/images/7.png)
+![8](/images/8.png)
+![9](/images/9.png)
 
-[博客园:http://www.cnblogs.com/shen-hua/]:http://www.cnblogs.com/shen-hua/
-[TitleLayout——一个轻松实现标题栏的]:http://www.jianshu.com/p/3d0430901848
-[ToastUtil——Toast多功能使用的封装]:https://github.com/SiberiaDante/ToastUtils
-[Android开发必备经典收藏集（整理中）]:http://www.jianshu.com/p/a49081da249a
-[Android开发常备工具整理中]:https://github.com/SiberiaDante/SiberiaDanteLib
+#### [我的博客园](http://www.cnblogs.com/shen-hua/)
+#### [我的AndroidUtilLib](https://github.com/SiberiaDante/AndroidUtilLib)
+
 
 ## 说明
 ### [CustomDialog]：
@@ -184,6 +186,8 @@ Error:Execution failed for task ':app:processDebugResources'. > com.android.ide.
 ```
 解决方法：COMPILE_SDK_VERSION>=26
 ### 版本更新说明：
+* v1.0.3：
+    * BottomPopupWindow支持Item颜色、字体大小设置；支持底部取消按钮隐藏；支持Item超过7条时滚动显示或者全部显示
 * v1.0.2：
     * CustomDialog 增加支持动态设置View属性
 
