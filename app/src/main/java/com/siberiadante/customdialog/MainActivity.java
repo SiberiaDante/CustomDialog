@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_general_dialog_three).setOnClickListener(this);
         findViewById(R.id.btn_general_dialog_four).setOnClickListener(this);
         findViewById(R.id.btn_bottom_popup_widow).setOnClickListener(this);
+        findViewById(R.id.btn_bottom_popup_widow1).setOnClickListener(this);
+        findViewById(R.id.btn_bottom_popup_widow2).setOnClickListener(this);
         findViewById(R.id.btn_edit_dialog).setOnClickListener(this);
         findViewById(R.id.btn_custom_dialog).setOnClickListener(this);
         findViewById(R.id.btn_sd_custom_dialog).setOnClickListener(this);
@@ -54,6 +56,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_bottom_popup_widow:
                 showBottomPopupWindow();
+                break;
+            case R.id.btn_bottom_popup_widow1:
+                showBottomPopupWindow1();
+                break;
+            case R.id.btn_bottom_popup_widow2:
+                showBottomPopupWindow2();
                 break;
             case R.id.btn_edit_dialog:
                 showEditDialog();
@@ -95,25 +103,107 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
     private void showBottomPopupWindow() {
         new BottomPopupWindow(this).builder()
-                .setTitle("选择").setCancelable(false).setCanceled(true)
-                .addSheetItem("相机", BottomPopupWindow.SheetItemColor.Blue, new BottomPopupWindow.OnSheetItemClickListener() {
+              .setCancelable(false).setCanceled(true)
+                .setTitle("上传你美丽的头像", ContextCompat.getColor(this, R.color.colorAccent), 18)
+                .addSheetItem("相机",  ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
                         //需要对相机进行运行时权限的申请
                     }
                 })
-                .addSheetItem("相册", BottomPopupWindow.SheetItemColor.Blue, new BottomPopupWindow.OnSheetItemClickListener() {
+                .addSheetItem("相册", ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
                         //调用手机相册的方法,该方法在下面有具体实现
                     }
                 })
-                .addSheetItem("时光机", BottomPopupWindow.SheetItemColor.Blue, new BottomPopupWindow.OnSheetItemClickListener() {
+                .addSheetItem("时光机",  ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
 
                     }
                 })
+                .show();
+    }
+    private void showBottomPopupWindow1() {
+        new BottomPopupWindow(this).builder()
+                .setCancelable(false).setCanceled(true)
+                .addSheetItem("相机",  ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //需要对相机进行运行时权限的申请
+                    }
+                })
+                .addSheetItem("相册", ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //调用手机相册的方法,该方法在下面有具体实现
+                    }
+                })
+                .addSheetItem("时光机",  ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+
+                    }
+                }).addSheetItem("相机",  ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+            @Override
+            public void onClick(int which) {
+                //需要对相机进行运行时权限的申请
+            }
+        })
+                .addSheetItem("相册", ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //调用手机相册的方法,该方法在下面有具体实现
+                    }
+                })
+                .addSheetItem("时光机",  ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+
+                    }
+                }).addSheetItem("相机",  ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+            @Override
+            public void onClick(int which) {
+                //需要对相机进行运行时权限的申请
+            }
+        })
+                .addSheetItem("相册", ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //调用手机相册的方法,该方法在下面有具体实现
+                    }
+                })
+                .addSheetItem("时光机",  ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+
+                    }
+                })
+                .show();
+    }
+    private void showBottomPopupWindow2() {
+        new BottomPopupWindow(this).builder()
+                .setTitle("选择").setCancelable(false).setCanceled(true)
+                .addSheetItem("相机",  ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //需要对相机进行运行时权限的申请
+                    }
+                })
+                .addSheetItem("相册", ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //调用手机相册的方法,该方法在下面有具体实现
+                    }
+                })
+                .addSheetItem("时光机",  ContextCompat.getColor(this, R.color.colorBlack), new BottomPopupWindow.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+
+                    }
+                })
+                .setCancelViewGone()
                 .show();
     }
 

@@ -35,23 +35,26 @@ public class BottomPopupWindow {
     private boolean showTitle = false;
     private List<SheetItem> sheetItemList;
     private Display display;
-    private View view_line;
+    private View view_line, view_line_bottom;
+    private boolean isScroll = true;
 
     public BottomPopupWindow(Context context) {
         this.context = context;
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        display = windowManager.getDefaultDisplay();
+        if (windowManager != null) {
+            display = windowManager.getDefaultDisplay();
+        }
     }
 
     public BottomPopupWindow builder() {
         View view = LayoutInflater.from(context).inflate(R.layout.popup_window_bottom_layout, null);
         view.setMinimumWidth(display.getWidth());
-        sLayout_content = (ScrollView) view.findViewById(R.id.scroll_view_layout_content);
-        lLayout_content = (LinearLayout) view
-                .findViewById(R.id.layout_popup_window_content);
-        txt_title = (TextView) view.findViewById(R.id.tv_popup_window_title);
+        sLayout_content = view.findViewById(R.id.scroll_view_layout_content);
+        lLayout_content = view.findViewById(R.id.layout_popup_window_content);
+        txt_title = view.findViewById(R.id.tv_popup_window_title);
         view_line = view.findViewById(R.id.view_line);
-        txt_cancel = (TextView) view.findViewById(R.id.tv_popup_window_cancel);
+//        view_line_bottom = view.findViewById(R.id.bottom_item_dialog_view_bottom_line);
+        txt_cancel = view.findViewById(R.id.tv_popup_window_cancel);
         txt_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,11 +64,13 @@ public class BottomPopupWindow {
         dialog = new Dialog(context, R.style.ActionGeneralDialog);
         dialog.setContentView(view);
         Window dialogWindow = dialog.getWindow();
-        dialogWindow.setGravity(Gravity.LEFT | Gravity.BOTTOM);
-        WindowManager.LayoutParams lp = dialogWindow.getAttributes();
-        lp.x = 0;
-        lp.y = 0;
-        dialogWindow.setAttributes(lp);
+        if (dialogWindow != null) {
+            dialogWindow.setGravity(Gravity.START | Gravity.BOTTOM);
+            WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+            lp.x = 0;
+            lp.y = 0;
+            dialogWindow.setAttributes(lp);
+        }
         return this;
     }
 
@@ -74,6 +79,19 @@ public class BottomPopupWindow {
         txt_title.setVisibility(View.VISIBLE);
         view_line.setVisibility(View.VISIBLE);
         txt_title.setText(title);
+        return this;
+    }
+
+    public BottomPopupWindow setCancelView(String content, int color, float size) {
+        txt_cancel.setText(content);
+        txt_cancel.setTextColor(color);
+        txt_cancel.setTextSize(size);
+        return this;
+    }
+
+    public BottomPopupWindow setCancelViewGone() {
+        txt_cancel.setVisibility(View.GONE);
+//        view_line_bottom.setVisibility(View.GONE);
         return this;
     }
 
@@ -97,7 +115,7 @@ public class BottomPopupWindow {
         return this;
     }
 
-    public BottomPopupWindow addSheetItem(String strItem, SheetItemColor color,
+    public BottomPopupWindow addSheetItem(String strItem, int color,
                                           OnSheetItemClickListener listener) {
         if (sheetItemList == null) {
             sheetItemList = new ArrayList<SheetItem>();
@@ -105,28 +123,45 @@ public class BottomPopupWindow {
         sheetItemList.add(new SheetItem(strItem, color, listener));
         return this;
     }
+    public BottomPopupWindow addSheetItem(String strItem, int color, int textSize,
+                                           OnSheetItemClickListener listener) {
+        if (sheetItemList == null) {
+            sheetItemList = new ArrayList<>();
+        }
+        sheetItemList.add(new SheetItem(strItem, color, textSize, listener));
+        return this;
+    }
+    public void show() {
+        setSheetItems();
+        dialog.show();
+    }
 
     private void setSheetItems() {
         if (sheetItemList == null || sheetItemList.size() <= 0) {
             return;
         }
         int size = sheetItemList.size();
-        if (size >= 7) {
+        if (size >= 7 && isScroll) {
             LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) sLayout_content.getLayoutParams();
             params.height = display.getHeight() / 2;
             sLayout_content.setLayoutParams(params);
         }
-        for (int i = 0; i <= size-1; i++) {
+        for (int i = 0; i <= size - 1; i++) {
             final int index = i;
-            SheetItem sheetItem = sheetItemList.get(i );
+            SheetItem sheetItem = sheetItemList.get(i);
             String strItem = sheetItem.name;
-            SheetItemColor color = sheetItem.color;
-            final OnSheetItemClickListener listener = (OnSheetItemClickListener) sheetItem.itemClickListener;
+            int color = sheetItem.color;
+            final OnSheetItemClickListener listener = sheetItem.itemClickListener;
             TextView textView = new TextView(context);
+            textView.setTextColor(color);
             textView.setText(strItem);
-            textView.setTextSize(18);
+            if (sheetItem.mTextSize == 0) {
+                textView.setTextSize(18);
+            } else {
+                textView.setTextSize(sheetItem.mTextSize);
+            }
             textView.setGravity(Gravity.CENTER);
-            if (size-1 == 0) {
+            if (size - 1 == 0) {
                 if (showTitle) {
                     textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
                 } else {
@@ -134,7 +169,7 @@ public class BottomPopupWindow {
                 }
             } else {
                 if (showTitle) {
-                    if (i >= 0 && i < size-1) {
+                    if (i >= 0 && i < size - 1) {
                         textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
                     } else {
                         textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
@@ -142,18 +177,12 @@ public class BottomPopupWindow {
                 } else {
                     if (i == 0) {
                         textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
-                    } else if (i < size-1) {
+                    } else if (i < size - 1) {
                         textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
                     } else {
                         textView.setBackgroundResource(R.drawable.bottom_menu_btn_selector);
                     }
                 }
-            }
-            if (color == null) {
-                textView.setTextColor(Color.parseColor(SheetItemColor.Blue
-                        .getName()));
-            } else {
-                textView.setTextColor(Color.parseColor(color.getName()));
             }
             float scale = context.getResources().getDisplayMetrics().density;
             int height = (int) (45 * scale + 0.5f);
@@ -167,7 +196,7 @@ public class BottomPopupWindow {
                 }
             });
             lLayout_content.addView(textView);
-            if ((i >= 0) && (i < size-1)) {//此if语句是我加的使每一小项之间有分割线
+            if ((i >= 0) && (i < size - 1)) {//此if语句是我加的使每一小项之间有分割线
                 View v = new View(context);
                 v.setBackgroundColor(Color.parseColor("#c6c6c6"));
                 v.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1));
@@ -176,10 +205,30 @@ public class BottomPopupWindow {
         }
     }
 
-    public void show() {
-        setSheetItems();
-        dialog.show();
+    /**
+     * @param isScroll true:大于7条时页面高度为屏幕高度一半，内容可滑动
+     */
+    public BottomPopupWindow setIsScroll(boolean isScroll) {
+        this.isScroll = isScroll;
+        return this;
     }
+//    public enum SheetItemColor {
+//        Blue("#037BFF"), Red("#FD4A2E"), Gray("#5b5b5b");
+//
+//        private String name;
+//
+//        private SheetItemColor(String name) {
+//            this.name = name;
+//        }
+//
+//        public String getName() {
+//            return name;
+//        }
+//
+//        public void setName(String name) {
+//            this.name = name;
+//        }
+//    }
 
     public interface OnSheetItemClickListener {
         void onClick(int which);
@@ -188,31 +237,22 @@ public class BottomPopupWindow {
     public class SheetItem {
         String name;
         OnSheetItemClickListener itemClickListener;
-        SheetItemColor color;
+        int color;
+        int mTextSize = 0;
 
-        public SheetItem(String name, SheetItemColor color,
+        public SheetItem(String name, int color,
                          OnSheetItemClickListener itemClickListener) {
             this.name = name;
             this.color = color;
             this.itemClickListener = itemClickListener;
         }
-    }
 
-    public enum SheetItemColor {
-        Blue("#037BFF"), Red("#FD4A2E"),Gray("#5b5b5b");
-
-        private String name;
-
-        private SheetItemColor(String name) {
+        public SheetItem(String name, int color, int textSize,
+                         OnSheetItemClickListener itemClickListener) {
             this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
+            this.color = color;
+            this.mTextSize = textSize;
+            this.itemClickListener = itemClickListener;
         }
     }
 }
