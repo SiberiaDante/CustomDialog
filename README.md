@@ -3,7 +3,7 @@
 ![CustomDialog](/images/dialog.gif)
 ## 依赖
 ```
-compile 'com.github.SiberiaDante:CustomDialog:v1.0.2'
+implementation 'com.github.SiberiaDante:CustomDialog:v1.1.1'
 ```
 ![1](/images/1.png)
 ![2](/images/2.png)
