@@ -3,7 +3,7 @@
 
 ## 依赖
 ```
-implementation 'com.github.SiberiaDante:CustomDialog:v1.1.1'
+implementation 'com.github.SiberiaDante:CustomDialog:v1.1.2'
 ```
 ![1](/images/1.png)
 ![2](/images/2.png)
