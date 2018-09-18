@@ -1,6 +1,6 @@
 # CustomDialog
 一个万能的通用支持多功能的Dialog
-![CustomDialog](/images/dialog.gif)
+
 ## 依赖
 ```
 implementation 'com.github.SiberiaDante:CustomDialog:v1.1.1'
